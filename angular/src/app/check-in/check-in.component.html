@@ -18,10 +18,28 @@
                     <label for="id">ID</label>
                     <input type="text" id="" pInputText formControlName="id" />                            
                 </div>
-                <div class="input-label w-100">
-                    <label for="registrationStartDate">Registration Start Date</label>
-                    <p-calendar formControlName="registrationStartDate" class="calendar" [showTime]="true" hourFormat="24"></p-calendar>
-                </div>                       
+            <div class="datePickers">
+                <div class="input-label w-100 calendar">
+                    <label class="date-picker-label" for="registrationStartDate">Registration Start Date</label>
+                    <p-calendar 
+                        formControlName="registrationStartDate" 
+                        class="calendar" 
+                        showTime="true" 
+                        inline="true"
+                        hourFormat="24">
+                    </p-calendar>
+                </div>            
+                <div class="input-label w-100 calendar">
+                    <label class="date-picker-label" for="registrationStartDate">Registration End Date</label>
+                    <p-calendar 
+                        formControlName="registrationEndDate" 
+                        class="calendar" 
+                        inline="true"
+                        showTime="true" 
+                        hourFormat="24">
+                    </p-calendar>
+                </div> 
+            </div>            
                 <!-- <div class="padding-top-1-5">
                             <div class="trophy-autocomplete-std width-100">
                                 <label for="contact">Room</label>
@@ -89,19 +107,3 @@
 >
   <p class="spinner-text">Loading...</p>
 </ngx-spinner>
-<div class="input-label w-100">
-    <label for="time">Time</label>
-        <p-calendar [(ngModel)]="date7" [timeOnly]="true"  inputId="time"></p-calendar>
-</div>  
-
-<div class="p-timepicker ng-tns-c49-6 ng-star-inserted" style=""><div class="p-hour-picker ng-tns-c49-6"><button type="button" pripple="" class="p-ripple p-element p-link ng-tns-c49-6"><span class="pi pi-chevron-up ng-tns-c49-6"></span></button><span class="ng-tns-c49-6"><!--bindings={
-    "ng-reflect-ng-if": "false"
-  }-->23</span><button type="button" pripple="" class="p-ripple p-element p-link ng-tns-c49-6"><span class="pi pi-chevron-down ng-tns-c49-6"></span></button></div><div class="p-separator ng-tns-c49-6"><span class="ng-tns-c49-6">:</span></div><div class="p-minute-picker ng-tns-c49-6"><button type="button" pripple="" class="p-ripple p-element p-link ng-tns-c49-6"><span class="pi pi-chevron-up ng-tns-c49-6"></span></button><span class="ng-tns-c49-6">0<!--ng-container--><!--bindings={
-    "ng-reflect-ng-if": "true"
-  }-->8</span><button type="button" pripple="" class="p-ripple p-element p-link ng-tns-c49-6"><span class="pi pi-chevron-down ng-tns-c49-6"></span></button></div><!--bindings={
-    "ng-reflect-ng-if": "false"
-  }--><!--bindings={
-    "ng-reflect-ng-if": "false"
-  }--><!--bindings={
-    "ng-reflect-ng-if": "false"
-  }--></div>

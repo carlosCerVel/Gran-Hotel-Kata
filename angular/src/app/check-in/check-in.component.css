@@ -19,7 +19,7 @@
 }
 
 .form-buttons {
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
@@ -45,8 +45,27 @@
     box-sizing: unset;
 }
 
-::ng-deep .ui-datepicker-title {
+::ng-deep .p-datepicker-title {
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+.datePickers {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.calendar {
+    display: flex;
+    flex-basis: content;
+}
+
+::ng-deep .p-calendar {
+    width: 200px;
+}
+
+.date-picker-label {
+    display: flex;
+    justify-content: center;
 }

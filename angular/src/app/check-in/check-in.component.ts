@@ -4,7 +4,7 @@ import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
 import { CheckInServiceProxy } from '@shared/service-proxies/service-proxies';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng-lts/api';
 
 @Component({
   selector: 'app-check-in',
@@ -53,6 +53,7 @@ export class CheckInComponent extends AppComponentBase {
   save() {
     this.spinner.show();
     this.saving = true;
+    this.form.controls;
     this._checkInService.test().subscribe(
       (resp) => {
         this.saving = false;

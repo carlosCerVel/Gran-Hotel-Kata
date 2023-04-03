@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientJsonpModule } from '@angular/common/http';
-import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng-lts/confirmdialog';
+import { ToastModule } from 'primeng-lts/toast';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +43,9 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 import { CheckInComponent } from './check-in/check-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { CalendarModule } from 'primeng';
+import {CalendarModule} from 'primeng-lts/calendar';
+import { ButtonModule } from 'primeng-lts/button';
+import {RippleModule} from 'primeng-lts/ripple';
 
 @NgModule({
   declarations: [
@@ -79,9 +80,11 @@ import { CalendarModule } from 'primeng';
     CheckOutComponent
   ],
   imports: [
+    RippleModule,
     ButtonModule,
     CalendarModule,
     NgxSpinnerModule,
+    ReactiveFormsModule,
     ConfirmDialogModule,
     ToastModule,
     CommonModule,
