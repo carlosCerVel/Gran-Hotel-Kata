@@ -9,7 +9,6 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ConfirmDialogModule } from 'primeng-lts/confirmdialog';
 import { ToastModule } from 'primeng-lts/toast';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceProxyModule } from '@shared/service-proxies/service-proxy.module';
@@ -99,7 +98,6 @@ import {RippleModule} from 'primeng-lts/ripple';
     AppRoutingModule,
     ServiceProxyModule,
     SharedModule,
-    NgxPaginationModule,
   ],
   providers: [],
   entryComponents: [

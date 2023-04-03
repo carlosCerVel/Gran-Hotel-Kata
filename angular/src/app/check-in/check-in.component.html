@@ -18,68 +18,28 @@
                     <label for="id">ID</label>
                     <input type="text" id="" pInputText formControlName="id" />                            
                 </div>
-            <div class="datePickers">
-                <div class="input-label w-100 calendar">
-                    <label class="date-picker-label" for="registrationStartDate">Registration Start Date</label>
-                    <p-calendar 
-                        formControlName="registrationStartDate" 
-                        class="calendar" 
-                        showTime="true" 
-                        inline="true"
-                        hourFormat="24">
-                    </p-calendar>
-                </div>            
-                <div class="input-label w-100 calendar">
-                    <label class="date-picker-label" for="registrationStartDate">Registration End Date</label>
-                    <p-calendar 
-                        formControlName="registrationEndDate" 
-                        class="calendar" 
-                        inline="true"
-                        showTime="true" 
-                        hourFormat="24">
-                    </p-calendar>
-                </div> 
-            </div>            
-                <!-- <div class="padding-top-1-5">
-                            <div class="trophy-autocomplete-std width-100">
-                                <label for="contact">Room</label>
-                                <div class="autocomplete-icon">
-                                    <p-autoComplete
-                                        styleClass="autocomplete-std"
-                                        formControlName="contact"
-                                        [suggestions]="results"
-                                        dataKey="user.id"
-                                        (completeMethod)="search($event)"
-                                        [forceSelection]="true"
-                                        [field]="myUserConversionMethod"
-                                        placeholder="Search Customer"
-                                        readonly="true"
-                                    >
-                                        <ng-template let-user pTemplate="item">
-                                            {{ user.name }} {{ user.surname }}
-                                        </ng-template>
-                                        <ng-template let-user pTemplate="selectedItem">
-                                            {{ user.name }} {{ user.surname }}
-                                        </ng-template>
-                                    </p-autoComplete>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="trophy-datepicker-std padding-right-min w-100">
-                            <label for="registrationStartDate">Trophy Date</label>
-                            <div>
-                                <p-calendar
-                                    styleClass="datepicker-std"
-                                    [showIcon]="true"
-                                    placeholder="Select Date"
-                                    dateFormat="mm/dd/yy"
-                                    name="harvestDate"
-                                    formControlName="harvestDate"
-                                    (onSelect)="setEndDate($event)"
-                                >
-                                </p-calendar>
-                            </div>
-                        </div>  -->
+                <div class="datePickers">
+                    <div class="input-label w-100 calendar">
+                        <label class="date-picker-label" for="registrationStartDate">Registration Start Date</label>
+                        <p-calendar 
+                            formControlName="registrationStartDate" 
+                            class="calendar" 
+                            showTime="true" 
+                            inline="true"
+                            hourFormat="24">
+                        </p-calendar>
+                    </div>            
+                    <div class="input-label w-100 calendar">
+                        <label class="date-picker-label" for="registrationStartDate">Registration End Date</label>
+                        <p-calendar 
+                            formControlName="registrationEndDate" 
+                            class="calendar" 
+                            inline="true"
+                            showTime="true" 
+                            hourFormat="24">
+                        </p-calendar>
+                    </div> 
+                </div>         
             </div>
         </div>
         <div class="form-buttons">

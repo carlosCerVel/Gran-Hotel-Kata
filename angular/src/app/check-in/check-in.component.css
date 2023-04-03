@@ -51,6 +51,14 @@
     gap: 10px;
 }
 
+::ng-deep .p-datepicker-calendar {
+    background: wheat;
+}
+
+::ng-deep .p-highlight {
+    font-weight: 900;
+    background: aqua;
+}
 .datePickers {
     display: flex;
     justify-content: space-evenly;
