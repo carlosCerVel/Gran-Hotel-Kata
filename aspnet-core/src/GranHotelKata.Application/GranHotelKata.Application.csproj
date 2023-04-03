@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <VersionPrefix>1.0.0.0</VersionPrefix>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -12,5 +12,9 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\GranHotelKata.Core\GranHotelKata.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CheckIn\Dto\" />
+    <Folder Include="CheckOut\Dto\" />
   </ItemGroup>
 </Project>

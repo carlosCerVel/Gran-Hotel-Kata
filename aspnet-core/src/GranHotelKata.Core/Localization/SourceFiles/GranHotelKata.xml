@@ -2,6 +2,8 @@
 <localizationDictionary culture="en">
   <texts>
     <text name="HomePage" value="Home page" />
+    <text name="CheckIn" value="Check-In" />
+    <text name="CheckOut" value="Check-Out" />
     <text name="About" value="About" />
     <text name="WelcomeMessage" value="Welcome to GranHotelKata!" />
     <text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />

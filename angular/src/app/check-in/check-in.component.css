@@ -1,0 +1,52 @@
+.spinner-text {
+    font-size: 20px; 
+    color: white
+}
+
+.input-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-label {
+    margin-top: .5rem;
+}
+
+.form-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container-form {
+    padding-left: 150px;
+    padding-right: 150px;
+    min-width: 500px;
+    box-sizing: unset;
+}
+
+.padding-top-1 {
+    padding-top: 1rem;
+}
+
+.form {
+    box-sizing: unset;
+}
+
+::ng-deep .ui-datepicker-calendar
+{
+    min-width: 500px;
+    box-sizing: unset;
+}
+
+::ng-deep .ui-datepicker-title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

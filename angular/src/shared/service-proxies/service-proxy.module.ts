@@ -8,6 +8,7 @@ import * as ApiServiceProxies from './service-proxies';
     providers: [
         ApiServiceProxies.RoleServiceProxy,
         ApiServiceProxies.SessionServiceProxy,
+        ApiServiceProxies.CheckInServiceProxy,
         ApiServiceProxies.TenantServiceProxy,
         ApiServiceProxies.UserServiceProxy,
         ApiServiceProxies.TokenAuthServiceProxy,
