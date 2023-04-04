@@ -21,23 +21,23 @@ namespace GranHotelKata.Migrations
                     DeleterUserId = table.Column<long>(nullable: true),
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     RoomNumber = table.Column<string>(maxLength: 40, nullable: false),
-                    GuessAssignedId = table.Column<long>(nullable: true)
+                    GuestAssignedId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Room", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Room_Guess_GuessAssignedId",
-                        column: x => x.GuessAssignedId,
-                        principalTable: "Guess",
+                        name: "FK_Room_Guest_GuestAssignedId",
+                        column: x => x.GuestAssignedId,
+                        principalTable: "Guest",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Room_GuessAssignedId",
+                name: "IX_Room_GuestAssignedId",
                 table: "Room",
-                column: "GuessAssignedId");
+                column: "GuestAssignedId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -46,8 +46,8 @@ namespace GranHotelKata.Migrations
                 name: "Room");
 
             migrationBuilder.DropPrimaryKey(
-                name: "PK_Guess",
-                table: "Guess");
+                name: "PK_Guest",
+                table: "Guest");
         }
     }
 }

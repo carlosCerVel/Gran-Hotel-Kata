@@ -20,38 +20,38 @@ namespace GranHotelKata.CheckIn
     public class CheckInAppService : GranHotelKataAppServiceBase, ICheckInAppService
     {
         private readonly IRepository<Room, long> _roomRepository;
-        private readonly IRepository<Guess, long> _guessRepository;
+        private readonly IRepository<Guest, long> _guestRepository;
 
         public CheckInAppService(
             IRepository<Room, long> roomRepository,
-            IRepository<Guess, long> guessRepository)
+            IRepository<Guest, long> guestRepository)
         {
             _roomRepository = roomRepository;
-            _guessRepository = guessRepository;
+            _guestRepository = guestRepository;
         }
         /// <summary>
-        /// Process to add a new guess to the hotel
+        /// Process to add a new guest to the hotel
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<HttpStatusCode> NewGuessCheckIn(GuestCheckInRequest request)
+        public async Task<HttpStatusCode> NewGuestCheckIn(GuestCheckInRequest request)
         {
-            Guess preExistingGuess = await _guessRepository.FirstOrDefaultAsync(x => x.GuessID.ToLowerInvariant() == request.GuessID.ToLowerInvariant());
-            if (preExistingGuess != null)
+            Guest preExistingGuest = await _guestRepository.FirstOrDefaultAsync(x => x.GuestID.ToLower() == request.GuestID.ToLower());
+            if (preExistingGuest != null)
             {
                 throw new UserFriendlyException("User is already present on the system");
             }
 
-            Guess newGuess = ObjectMapper.Map<Guess>(request);
+            Guest newGuest = ObjectMapper.Map<Guest>(request);
 
-            newGuess.CheckInDate = newGuess.CheckInDate.ToUniversalTime();
-            newGuess.CheckOutDate = newGuess.CheckOutDate.ToUniversalTime();
+            newGuest.CheckInDate = newGuest.CheckInDate.ToUniversalTime();
+            newGuest.CheckOutDate = newGuest.CheckOutDate.ToUniversalTime();
 
-            long newGuessId = await _guessRepository.InsertAndGetIdAsync(newGuess);
+            long newGuestId = await _guestRepository.InsertAndGetIdAsync(newGuest);
 
             Room roomToUpdate = await _roomRepository.GetAsync(request.RoomSelected);
 
-            roomToUpdate.GuessAssignedId = newGuessId;
+            roomToUpdate.GuestAssignedId = newGuestId;
 
             await _roomRepository.UpdateAsync(roomToUpdate);
 
@@ -64,7 +64,7 @@ namespace GranHotelKata.CheckIn
         /// <returns></returns>
         public async Task<List<RoomListItemDto>> GetAvailableRooms()
         {
-            List<Room> roomsAvailable = await _roomRepository.GetAll().Include(x => x.GuessAssigned).Where(x => x.GuessAssigned == null).ToListAsync();
+            List<Room> roomsAvailable = await _roomRepository.GetAll().Include(x => x.GuestAssigned).Where(x => x.GuestAssigned == null).ToListAsync();
             return ObjectMapper.Map<List<RoomListItemDto>>(roomsAvailable);
         }
     }

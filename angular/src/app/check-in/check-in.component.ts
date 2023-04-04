@@ -51,7 +51,7 @@ export class CheckInComponent extends AppComponentBase {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      guessID: ['', Validators.required],
+      guestID: ['', Validators.required],
       registrationStartDate: [startDate, Validators.required],
       registrationEndDate: [endDate, Validators.required],
       roomSelected: [null, Validators.required],
@@ -97,8 +97,8 @@ export class CheckInComponent extends AppComponentBase {
     let checkInRequest: GuestCheckInRequest = this.form.value;
     checkInRequest.roomSelected = this.form.controls['roomSelected'].value.id;
 
-    this._checkInService.newGuessCheckIn(checkInRequest)
-      .pipe(finalize(() => this.spinner.hide))
+    this._checkInService.newGuestCheckIn(checkInRequest)
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(
       (resp) => {
         this.clean();

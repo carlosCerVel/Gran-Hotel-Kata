@@ -92,7 +92,7 @@ namespace GranHotelKata.EntityFrameworkCore.Seed.Tenants
             {
                 _context.Rooms.Add(new Main.Room
                 {
-                    GuessAssignedId = null,
+                    GuestAssignedId = null,
                     RoomNumber = "ROOM" + i,
                 });;
             }           

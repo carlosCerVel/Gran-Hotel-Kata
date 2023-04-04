@@ -13,8 +13,8 @@ namespace GranHotelKata.Main
         [Required]
         [MaxLength(40), MinLength(1)]
         public string RoomNumber { get; set; }
-        public long? GuessAssignedId { get; set; }
-        [ForeignKey("GuessAssignedId")]
-        public Guess GuessAssigned { get; set; }
+        public long? GuestAssignedId { get; set; }
+        [ForeignKey("GuestAssignedId")]
+        public Guest GuestAssigned { get; set; }
     }
 }

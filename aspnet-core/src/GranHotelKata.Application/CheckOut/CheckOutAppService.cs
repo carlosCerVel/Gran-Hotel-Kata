@@ -20,33 +20,33 @@ namespace GranHotelKata.CheckIn
     public class CheckOutAppService : GranHotelKataAppServiceBase, ICheckOutAppService
     {
         private readonly IRepository<Room, long> _roomRepository;
-        private readonly IRepository<Guess, long> _guessRepository;
+        private readonly IRepository<Guest, long> _guestRepository;
 
         public CheckOutAppService(
             IRepository<Room, long> roomRepository,
-            IRepository<Guess, long> guessRepository)
+            IRepository<Guest, long> guestRepository)
         {
             _roomRepository = roomRepository;
-            _guessRepository = guessRepository;
+            _guestRepository = guestRepository;
         }
-        public async Task<HttpStatusCode> GuessCheckOut(GuessCheckOutRequest request)
+        public async Task<HttpStatusCode> GuestCheckOut(GuestCheckOutRequest request)
         {
-            Room roomToUpdate = await _roomRepository.GetAll().Include(x => x.GuessAssigned).FirstOrDefaultAsync(x => x.Id == request.RoomSelected);
+            Room roomToUpdate = await _roomRepository.GetAll().Include(x => x.GuestAssigned).FirstOrDefaultAsync(x => x.Id == request.RoomSelected);
 
-            Guess assignedGuess = roomToUpdate.GuessAssigned;
+            Guest assignedGuest = roomToUpdate.GuestAssigned;
 
-            roomToUpdate.GuessAssignedId = null;
+            roomToUpdate.GuestAssignedId = null;
 
             await _roomRepository.UpdateAsync(roomToUpdate);
 
-            await _guessRepository.DeleteAsync(assignedGuess);
+            await _guestRepository.DeleteAsync(assignedGuest);
 
             return HttpStatusCode.OK;
         }
 
         public async Task<List<RoomListItemDto>> GetRoomsCurrentlyOccupied()
         {
-            List<Room> roomsAvailable = await _roomRepository.GetAll().Include(x => x.GuessAssigned).Where(x => x.GuessAssigned != null).ToListAsync();
+            List<Room> roomsAvailable = await _roomRepository.GetAll().Include(x => x.GuestAssigned).Where(x => x.GuestAssigned != null).ToListAsync();
             return ObjectMapper.Map<List<RoomListItemDto>>(roomsAvailable);
         }
     }

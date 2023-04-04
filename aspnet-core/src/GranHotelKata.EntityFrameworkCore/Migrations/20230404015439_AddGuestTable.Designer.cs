@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GranHotelKata.Migrations
 {
     [DbContext(typeof(GranHotelKataDbContext))]
-    [Migration("20230404015439_AddGuessTable")]
+    [Migration("20230404015439_AddGuestTable")]
     partial class AddGuessTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1514,7 +1514,7 @@ namespace GranHotelKata.Migrations
                     b.ToTable("AbpUsers");
                 });
 
-            modelBuilder.Entity("GranHotelKata.Main.Guess", b =>
+            modelBuilder.Entity("GranHotelKata.Main.Guest", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -1568,7 +1568,7 @@ namespace GranHotelKata.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Guess");
+                    b.ToTable("Guest");
                 });
 
             modelBuilder.Entity("GranHotelKata.MultiTenancy.Tenant", b =>

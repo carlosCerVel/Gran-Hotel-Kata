@@ -11,6 +11,6 @@ namespace GranHotelKata.CheckIn
     public interface ICheckOutAppService
     {
         Task<List<RoomListItemDto>> GetRoomsCurrentlyOccupied();
-        Task<HttpStatusCode> GuessCheckOut(GuessCheckOutRequest request);
+        Task<HttpStatusCode> GuestCheckOut(GuestCheckOutRequest request);
     }
 }

@@ -14,7 +14,7 @@ namespace GranHotelKata
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Guess, GuestCheckInRequest>().ReverseMap();
+            configuration.CreateMap<Guest, GuestCheckInRequest>().ReverseMap();
 
             configuration.CreateMap<Room, RoomListItemDto>().ReverseMap();
 

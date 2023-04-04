@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GranHotelKata.Main
 {
-    [Table("Guess")]
-    public class Guess : FullAuditedEntity<long>
+    [Table("Guest")]
+    public class Guest : FullAuditedEntity<long>
     {
         [Key]
         public override long Id { get; set; }
@@ -18,7 +18,7 @@ namespace GranHotelKata.Main
         public string Surname { get; set; }
         [Required]
         [MaxLength(20), MinLength(1)]
-        public string GuessID { get; set; }
+        public string GuestID { get; set; }
         [Required]
         public DateTime CheckInDate { get; set; }
         [Required]

@@ -2,7 +2,7 @@ import { Component, Injector} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
-import { CheckOutServiceProxy, GuessCheckOutRequest, RoomListItemDto } from '@shared/service-proxies/service-proxies';
+import { CheckOutServiceProxy, GuestCheckOutRequest, RoomListItemDto } from '@shared/service-proxies/service-proxies';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService, MessageService } from 'primeng-lts/api';
@@ -85,10 +85,10 @@ export class CheckOutComponent extends AppComponentBase {
     this.spinner.show();
     this.saving = true;
     this.form.controls;
-    let checkOutRequest: GuessCheckOutRequest = new GuessCheckOutRequest;
+    let checkOutRequest: GuestCheckOutRequest = new GuestCheckOutRequest;
     checkOutRequest.roomSelected = this.form.controls['roomSelected'].value.id;
 
-    this._checkOutService.guessCheckOut(checkOutRequest)
+    this._checkOutService.guestCheckOut(checkOutRequest)
       .pipe(finalize(() => this.spinner.hide))
       .subscribe(
       (resp) => {

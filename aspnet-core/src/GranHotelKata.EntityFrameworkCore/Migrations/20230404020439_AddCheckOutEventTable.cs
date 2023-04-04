@@ -30,13 +30,13 @@ namespace GranHotelKata.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Guess_CheckOutEventId",
-                table: "Guess",
+                name: "IX_Guest_CheckOutEventId",
+                table: "Guest",
                 column: "CheckOutEventId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Guess_CheckOutEvent_CheckOutEventId",
-                table: "Guess",
+                name: "FK_Guest_CheckOutEvent_CheckOutEventId",
+                table: "Guest",
                 column: "CheckOutEventId",
                 principalTable: "CheckOutEvent",
                 principalColumn: "Id",
@@ -46,15 +46,15 @@ namespace GranHotelKata.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Guess_CheckOutEvent_CheckOutEventId",
-                table: "Guess");
+                name: "FK_Guest_CheckOutEvent_CheckOutEventId",
+                table: "Guest");
 
             migrationBuilder.DropTable(
                 name: "CheckOutEvent");
 
             migrationBuilder.DropIndex(
-                name: "IX_Guess_CheckOutEventId",
-                table: "Guess");
+                name: "IX_Guest_CheckOutEventId",
+                table: "Guest");
         }
     }
 }

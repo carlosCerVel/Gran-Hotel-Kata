@@ -1556,7 +1556,7 @@ namespace GranHotelKata.Migrations
                     b.ToTable("CheckOutEvent");
                 });
 
-            modelBuilder.Entity("GranHotelKata.Main.Guess", b =>
+            modelBuilder.Entity("GranHotelKata.Main.Guest", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -1584,7 +1584,7 @@ namespace GranHotelKata.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("GuessID")
+                    b.Property<string>("GuestID")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
@@ -1612,7 +1612,7 @@ namespace GranHotelKata.Migrations
 
                     b.HasIndex("CheckOutEventId");
 
-                    b.ToTable("Guess");
+                    b.ToTable("Guest");
                 });
 
             modelBuilder.Entity("GranHotelKata.Main.Room", b =>
@@ -1634,7 +1634,7 @@ namespace GranHotelKata.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<long?>("GuessAssignedId")
+                    b.Property<long?>("GuestAssignedId")
                         .HasColumnType("bigint");
 
                     b.Property<bool>("IsDeleted")
@@ -1653,7 +1653,7 @@ namespace GranHotelKata.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GuessAssignedId");
+                    b.HasIndex("GuestAssignedId");
 
                     b.ToTable("Room");
                 });
@@ -1917,7 +1917,7 @@ namespace GranHotelKata.Migrations
                         .HasForeignKey("LastModifierUserId");
                 });
 
-            modelBuilder.Entity("GranHotelKata.Main.Guess", b =>
+            modelBuilder.Entity("GranHotelKata.Main.Guest", b =>
                 {
                     b.HasOne("GranHotelKata.Main.CheckOutEvent", "CheckOutEvent")
                         .WithMany()
@@ -1926,9 +1926,9 @@ namespace GranHotelKata.Migrations
 
             modelBuilder.Entity("GranHotelKata.Main.Room", b =>
                 {
-                    b.HasOne("GranHotelKata.Main.Guess", "GuessAssigned")
+                    b.HasOne("GranHotelKata.Main.Guest", "GuestAssigned")
                         .WithMany()
-                        .HasForeignKey("GuessAssignedId");
+                        .HasForeignKey("GuestAssignedId");
                 });
 
             modelBuilder.Entity("GranHotelKata.MultiTenancy.Tenant", b =>

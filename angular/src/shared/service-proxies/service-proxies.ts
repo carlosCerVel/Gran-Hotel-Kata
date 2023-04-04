@@ -156,8 +156,8 @@ export class CheckInServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    newGuessCheckIn(body: GuestCheckInRequest | undefined): Observable<HttpStatusCode> {
-        let url_ = this.baseUrl + "/api/services/app/CheckIn/NewGuessCheckIn";
+    newGuestCheckIn(body: GuestCheckInRequest | undefined): Observable<HttpStatusCode> {
+        let url_ = this.baseUrl + "/api/services/app/CheckIn/NewGuestCheckIn";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -173,11 +173,11 @@ export class CheckInServiceProxy {
         };
 
         return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processNewGuessCheckIn(response_);
+            return this.processNewGuestCheckIn(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processNewGuessCheckIn(response_ as any);
+                    return this.processNewGuestCheckIn(response_ as any);
                 } catch (e) {
                     return _observableThrow(e) as any as Observable<HttpStatusCode>;
                 }
@@ -186,7 +186,7 @@ export class CheckInServiceProxy {
         }));
     }
 
-    protected processNewGuessCheckIn(response: HttpResponseBase): Observable<HttpStatusCode> {
+    protected processNewGuestCheckIn(response: HttpResponseBase): Observable<HttpStatusCode> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -283,8 +283,8 @@ export class CheckOutServiceProxy {
      * @param body (optional) 
      * @return Success
      */
-    guessCheckOut(body: GuessCheckOutRequest | undefined): Observable<HttpStatusCode> {
-        let url_ = this.baseUrl + "/api/services/app/CheckOut/GuessCheckOut";
+    guestCheckOut(body: GuestCheckOutRequest | undefined): Observable<HttpStatusCode> {
+        let url_ = this.baseUrl + "/api/services/app/CheckOut/GuestCheckOut";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -300,11 +300,11 @@ export class CheckOutServiceProxy {
         };
 
         return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGuessCheckOut(response_);
+            return this.processGuestCheckOut(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGuessCheckOut(response_ as any);
+                    return this.processGuestCheckOut(response_ as any);
                 } catch (e) {
                     return _observableThrow(e) as any as Observable<HttpStatusCode>;
                 }
@@ -313,7 +313,7 @@ export class CheckOutServiceProxy {
         }));
     }
 
-    protected processGuessCheckOut(response: HttpResponseBase): Observable<HttpStatusCode> {
+    protected processGuestCheckOut(response: HttpResponseBase): Observable<HttpStatusCode> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -2181,7 +2181,7 @@ export interface IRegisterOutput {
 export class GuestCheckInRequest implements IGuestCheckInRequest {
     name: string | undefined;
     surname: string | undefined;
-    guessID: string | undefined;
+    guestID: string | undefined;
     checkInDate: moment.Moment;
     checkOutDate: moment.Moment;
     roomSelected: number;
@@ -2199,7 +2199,7 @@ export class GuestCheckInRequest implements IGuestCheckInRequest {
         if (_data) {
             this.name = _data["name"];
             this.surname = _data["surname"];
-            this.guessID = _data["guessID"];
+            this.guestID = _data["guestID"];
             this.checkInDate = _data["checkInDate"] ? moment(_data["checkInDate"].toString()) : <any>undefined;
             this.checkOutDate = _data["checkOutDate"] ? moment(_data["checkOutDate"].toString()) : <any>undefined;
             this.roomSelected = _data["roomSelected"];
@@ -2217,7 +2217,7 @@ export class GuestCheckInRequest implements IGuestCheckInRequest {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["surname"] = this.surname;
-        data["guessID"] = this.guessID;
+        data["guestID"] = this.guestID;
         data["checkInDate"] = this.checkInDate ? this.checkInDate.toISOString() : <any>undefined;
         data["checkOutDate"] = this.checkOutDate ? this.checkOutDate.toISOString() : <any>undefined;
         data["roomSelected"] = this.roomSelected;
@@ -2235,7 +2235,7 @@ export class GuestCheckInRequest implements IGuestCheckInRequest {
 export interface IGuestCheckInRequest {
     name: string | undefined;
     surname: string | undefined;
-    guessID: string | undefined;
+    guestID: string | undefined;
     checkInDate: moment.Moment;
     checkOutDate: moment.Moment;
     roomSelected: number;
@@ -2352,10 +2352,10 @@ export interface IRoomListItemDto {
     roomNumber: string | undefined;
 }
 
-export class GuessCheckOutRequest implements IGuessCheckOutRequest {
+export class GuestCheckOutRequest implements IGuestCheckOutRequest {
     roomSelected: number;
 
-    constructor(data?: IGuessCheckOutRequest) {
+    constructor(data?: IGuestCheckOutRequest) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -2370,9 +2370,9 @@ export class GuessCheckOutRequest implements IGuessCheckOutRequest {
         }
     }
 
-    static fromJS(data: any): GuessCheckOutRequest {
+    static fromJS(data: any): GuestCheckOutRequest {
         data = typeof data === 'object' ? data : {};
-        let result = new GuessCheckOutRequest();
+        let result = new GuestCheckOutRequest();
         result.init(data);
         return result;
     }
@@ -2383,15 +2383,15 @@ export class GuessCheckOutRequest implements IGuessCheckOutRequest {
         return data;
     }
 
-    clone(): GuessCheckOutRequest {
+    clone(): GuestCheckOutRequest {
         const json = this.toJSON();
-        let result = new GuessCheckOutRequest();
+        let result = new GuestCheckOutRequest();
         result.init(json);
         return result;
     }
 }
 
-export interface IGuessCheckOutRequest {
+export interface IGuestCheckOutRequest {
     roomSelected: number;
 }
 

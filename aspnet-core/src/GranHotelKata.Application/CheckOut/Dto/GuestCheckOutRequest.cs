@@ -5,9 +5,9 @@ using System.Text;
 namespace GranHotelKata.CheckOut.Dto
 {
     /*
-    * Guess check-out process request
+    * Guest check-out process request
     */
-    public class GuessCheckOutRequest
+    public class GuestCheckOutRequest
     {
         public long RoomSelected { get; set; }
     }

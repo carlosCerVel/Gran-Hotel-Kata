@@ -8,7 +8,7 @@ namespace GranHotelKata.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Guess",
+                name: "Guest",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -22,21 +22,21 @@ namespace GranHotelKata.Migrations
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 40, nullable: false),
                     Surname = table.Column<string>(maxLength: 40, nullable: false),
-                    GuessID = table.Column<string>(maxLength: 20, nullable: false),
+                    GuestID = table.Column<string>(maxLength: 20, nullable: false),
                     CheckInDate = table.Column<DateTime>(nullable: false),
                     CheckOutDate = table.Column<DateTime>(nullable: false),
                     CheckOutEventId = table.Column<long>(nullable: true),
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Guess", x => x.Id);
+                    table.PrimaryKey("PK_Guest", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Guess");
+                name: "Guest");
         }
     }
 }
