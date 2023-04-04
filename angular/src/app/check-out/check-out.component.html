@@ -1,1 +1,60 @@
-<p>check-out works!</p>
+<div [@routerTransition] class="container">
+    <h4 class="mb-3 padding-top-1">
+        <span> Guest Check-Out</span>
+    </h4>
+    <form class="form" #AddRecordForm="ngForm" [formGroup]="form" (ngSubmit)="save()">
+        <div class="container-form">
+            <h5 class="mb-2 w-100">Rooms Currently Occupied</h5>
+            <div>
+                <div class="input-label w-100">
+                    <div class="width-100">
+                        <label for="roomSelected">Room</label>
+                        <div class="autocomplete-icon">
+                            <p-autoComplete
+                                formControlName="roomSelected"
+                                [suggestions]="filteredRoomsCurrentlyOccupied"
+                                dataKey="id"
+                                value="id"
+                                (completeMethod)="searchRoom($event)"
+                                field="roomNumber"
+                                [forceSelection]="true"
+                                placeholder="Search Room"
+                                [dropdown]="true"
+                            >
+                                <ng-template let-room pTemplate="item">
+                                    {{ room.roomNumber }}
+                                </ng-template>
+                                <ng-template let-user pTemplate="selectedItem">
+                                    {{ room.roomNumber }}
+                                </ng-template>
+                            </p-autoComplete>
+                        </div>
+                    </div>                         
+                </div>    
+            </div>
+        </div>
+        <div class="form-buttons">
+            <button type="button" class="btn btn-cancel" (click)="clean()">
+                <span class="span-cancel"> Cancel </span>
+            </button>
+            <button type="submit" class="btn btn-success" [disabled]="!form.valid || saving">
+                <span class="span-success"> Save </span>
+            </button>
+        </div>
+
+        <p-toast key="alert-message"></p-toast>
+        <p-confirmDialog styleClass="trophy-remove-dialog" [closable]="true" acceptIcon="" acceptLabel="Ok">
+            <ng-template pTemplate="header">
+                <h3><i class="svg-icon svg-icon__size-l svg-icon__error-alert"></i>{{ titleHeaderDialog }}</h3>
+            </ng-template>
+        </p-confirmDialog>
+    </form>
+</div>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p class="spinner-text">Loading...</p>
+</ngx-spinner>

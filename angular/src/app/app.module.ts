@@ -43,8 +43,11 @@ import { CheckInComponent } from './check-in/check-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {CalendarModule} from 'primeng-lts/calendar';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng-lts/button';
 import {RippleModule} from 'primeng-lts/ripple';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -79,6 +82,10 @@ import {RippleModule} from 'primeng-lts/ripple';
     CheckOutComponent
   ],
   imports: [
+    AutoCompleteModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    }),
     RippleModule,
     ButtonModule,
     CalendarModule,

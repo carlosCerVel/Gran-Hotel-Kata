@@ -26,6 +26,7 @@ namespace GranHotelKata.EntityFrameworkCore.Seed.Tenants
         public void Create()
         {
             CreateRolesAndUsers();
+            CreateRooms();
         }
 
         private void CreateRolesAndUsers()
@@ -84,6 +85,19 @@ namespace GranHotelKata.EntityFrameworkCore.Seed.Tenants
                 _context.UserRoles.Add(new UserRole(_tenantId, adminUser.Id, adminRole.Id));
                 _context.SaveChanges();
             }
+        }
+        private void CreateRooms()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                _context.Rooms.Add(new Main.Room
+                {
+                    GuessAssignedId = null,
+                    RoomNumber = "ROOM" + i,
+                });;
+            }           
+
+            _context.SaveChanges();
         }
     }
 }

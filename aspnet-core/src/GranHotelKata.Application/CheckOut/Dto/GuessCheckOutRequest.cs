@@ -9,6 +9,6 @@ namespace GranHotelKata.CheckOut.Dto
     */
     public class GuessCheckOutRequest
     {
-        public long RoomId { get; set; }
+        public long RoomSelected { get; set; }
     }
 }

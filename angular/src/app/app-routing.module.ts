@@ -18,7 +18,6 @@ import { CheckOutComponent } from './check-out/check-out.component';
                 path: '',
                 component: AppComponent,
                 children: [
-                    { path: 'home', component: HomeComponent,  canActivate: [AppRouteGuard] },
                     { path: 'checkIn', component: CheckInComponent,  canActivate: [AppRouteGuard] },
                     { path: 'checkOut', component: CheckOutComponent,  canActivate: [AppRouteGuard] },
                 ]

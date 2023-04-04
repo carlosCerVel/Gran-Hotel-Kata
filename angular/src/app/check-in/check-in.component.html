@@ -5,7 +5,7 @@
     <form class="form" #AddRecordForm="ngForm" [formGroup]="form" (ngSubmit)="save()">
         <div class="container-form">
             <h5 class="mb-2 w-100">Guest Information</h5>
-            <div class="green-panel">
+            <div>
                 <div class="input-label w-100">
                     <label for="name">Name</label>
                     <input type="text" id="" pInputText formControlName="name" />                            
@@ -16,7 +16,32 @@
                 </div>
                 <div class="input-label w-100">
                     <label for="id">ID</label>
-                    <input type="number" id="" pInputText formControlName="id" />                            
+                    <input type="text" id="" pInputText formControlName="guessID" />                            
+                </div>
+                <div class="input-label w-100">
+                    <div class="width-100">
+                        <label for="roomSelected">Room</label>
+                        <div class="autocomplete-icon">
+                            <p-autoComplete
+                                formControlName="roomSelected"
+                                [suggestions]="filteredRoomsAvailable"
+                                dataKey="id"
+                                value="id"
+                                (completeMethod)="searchRoom($event)"
+                                field="roomNumber"
+                                [forceSelection]="true"
+                                placeholder="Search Room"
+                                [dropdown]="true"
+                            >
+                                <ng-template let-room pTemplate="item">
+                                    {{ room.roomNumber }}
+                                </ng-template>
+                                <ng-template let-user pTemplate="selectedItem">
+                                    {{ room.roomNumber }}
+                                </ng-template>
+                            </p-autoComplete>
+                        </div>
+                    </div>                         
                 </div>
                 <div class="datePickers">
                     <div class="input-label w-100 calendar">
@@ -43,10 +68,10 @@
             </div>
         </div>
         <div class="form-buttons">
-            <button type="button" class="btn btn-cancel" (click)="close()">
+            <button type="button" class="btn btn-cancel" (click)="clean()">
                 <span class="span-cancel"> Cancel </span>
             </button>
-            <button type="submit" class="btn btn-success" [disabled]="!form.valid || saving">
+            <button type="submit" class="btn btn-success" [disabled]="!form.valid || saving || isInvalidDate">
                 <span class="span-success"> Save </span>
             </button>
         </div>

@@ -9,6 +9,7 @@ import * as ApiServiceProxies from './service-proxies';
         ApiServiceProxies.RoleServiceProxy,
         ApiServiceProxies.SessionServiceProxy,
         ApiServiceProxies.CheckInServiceProxy,
+        ApiServiceProxies.CheckOutServiceProxy,
         ApiServiceProxies.TenantServiceProxy,
         ApiServiceProxies.UserServiceProxy,
         ApiServiceProxies.TokenAuthServiceProxy,

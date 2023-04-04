@@ -13,6 +13,6 @@ namespace GranHotelKata.CheckIn.Dto
         public string GuessID { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
-        public long RoomNumber { get; set; }
+        public long RoomSelected { get; set; }
     }
 }

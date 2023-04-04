@@ -1,4 +1,5 @@
-﻿using GranHotelKata.CheckOut.Dto;
+﻿using GranHotelKata.CheckIn.Dto;
+using GranHotelKata.CheckOut.Dto;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -9,6 +10,7 @@ namespace GranHotelKata.CheckIn
 {
     public interface ICheckOutAppService
     {
+        Task<List<RoomListItemDto>> GetRoomsCurrentlyOccupied();
         Task<HttpStatusCode> GuessCheckOut(GuessCheckOutRequest request);
     }
 }
