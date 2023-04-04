@@ -13,8 +13,4 @@
   <ItemGroup>
     <ProjectReference Include="..\GranHotelKata.Core\GranHotelKata.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CheckIn\Dto\" />
-    <Folder Include="CheckOut\Dto\" />
-  </ItemGroup>
 </Project>

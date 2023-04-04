@@ -18,6 +18,7 @@ using Abp.Dependency;
 using Abp.Json;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
+using AutoMapper;
 
 namespace GranHotelKata.Web.Host.Startup
 {

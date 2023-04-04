@@ -13,6 +13,8 @@ namespace GranHotelKata
         public override void PreInitialize()
         {
             Configuration.Authorization.Providers.Add<GranHotelKataAuthorizationProvider>();
+
+            Configuration.Modules.AbpAutoMapper().Configurators.Add(CustomDtoMapper.CreateMappings);
         }
 
         public override void Initialize()
