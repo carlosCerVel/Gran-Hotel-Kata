@@ -3,6 +3,7 @@ using Abp.Zero.EntityFrameworkCore;
 using GranHotelKata.Authorization.Roles;
 using GranHotelKata.Authorization.Users;
 using GranHotelKata.MultiTenancy;
+using GranHotelKata.Main;
 
 namespace GranHotelKata.EntityFrameworkCore
 {
@@ -14,5 +15,10 @@ namespace GranHotelKata.EntityFrameworkCore
             : base(options)
         {
         }
+
+        public virtual DbSet<Guess> Guesses { get; set; }
+
+        public virtual DbSet<Room> Rooms { get; set; }
+
     }
 }

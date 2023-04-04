@@ -4,14 +4,16 @@ using GranHotelKata.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GranHotelKata.Migrations
 {
     [DbContext(typeof(GranHotelKataDbContext))]
-    partial class GranHotelKataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230404015439_AddGuessTable")]
+    partial class AddGuessTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1512,48 +1514,6 @@ namespace GranHotelKata.Migrations
                     b.ToTable("AbpUsers");
                 });
 
-            modelBuilder.Entity("GranHotelKata.Main.CheckOutEvent", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CheckOutDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("CheckOutDateDiscrepancyDetected")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CheckOutEvent");
-                });
-
             modelBuilder.Entity("GranHotelKata.Main.Guess", b =>
                 {
                     b.Property<long>("Id")
@@ -1567,7 +1527,7 @@ namespace GranHotelKata.Migrations
                     b.Property<DateTime>("CheckOutDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long?>("CheckOutEventId")
+                    b.Property<long>("CheckOutEventId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
@@ -1582,7 +1542,7 @@ namespace GranHotelKata.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("GuessID")
+                    b.Property<string>("ID")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
@@ -1608,52 +1568,7 @@ namespace GranHotelKata.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CheckOutEventId");
-
                     b.ToTable("Guess");
-                });
-
-            modelBuilder.Entity("GranHotelKata.Main.Room", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("GuessAssignedId")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("RoomNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GuessAssignedId");
-
-                    b.ToTable("Room");
                 });
 
             modelBuilder.Entity("GranHotelKata.MultiTenancy.Tenant", b =>
@@ -1913,20 +1828,6 @@ namespace GranHotelKata.Migrations
                     b.HasOne("GranHotelKata.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("GranHotelKata.Main.Guess", b =>
-                {
-                    b.HasOne("GranHotelKata.Main.CheckOutEvent", "CheckOutEvent")
-                        .WithMany()
-                        .HasForeignKey("CheckOutEventId");
-                });
-
-            modelBuilder.Entity("GranHotelKata.Main.Room", b =>
-                {
-                    b.HasOne("GranHotelKata.Main.Guess", "GuessAssigned")
-                        .WithMany()
-                        .HasForeignKey("GuessAssignedId");
                 });
 
             modelBuilder.Entity("GranHotelKata.MultiTenancy.Tenant", b =>

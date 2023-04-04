@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GranHotelKata.Main
 {
-    [Table("Room")]
+    [Table("CheckOutEvent")]
     public class CheckOutEvent : FullAuditedEntity<long>
     {
         [Required]

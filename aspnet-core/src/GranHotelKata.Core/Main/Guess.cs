@@ -8,6 +8,8 @@ namespace GranHotelKata.Main
     [Table("Guess")]
     public class Guess : FullAuditedEntity<long>
     {
+        [Key]
+        public override long Id { get; set; }
         [Required]
         [MaxLength(40), MinLength(1)]
         public string Name { get; set; }
@@ -16,14 +18,14 @@ namespace GranHotelKata.Main
         public string Surname { get; set; }
         [Required]
         [MaxLength(20), MinLength(1)]
-        public string ID { get; set; }
+        public string GuessID { get; set; }
         [Required]
         public DateTime CheckInDate { get; set; }
         [Required]
         public DateTime CheckOutDate { get; set; }
-        public bool CheckOutEventId { get; set; }
+        public long? CheckOutEventId { get; set; }
         [ForeignKey("CheckOutEventId")]
-        public bool CheckOutEvent { get; set; }
+        public CheckOutEvent CheckOutEvent { get; set; }
 
         [NotMapped]
         public string FullName
