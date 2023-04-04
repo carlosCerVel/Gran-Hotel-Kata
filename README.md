@@ -1,37 +1,23 @@
 # Important
 
-Issues of this repository are tracked on https://github.com/aspnetboilerplate/aspnetboilerplate. Please create your issues on https://github.com/aspnetboilerplate/aspnetboilerplate/issues.
+Use npm install --force to set the front end project in case there are depencies conflicts
+Use npm start to start the frontend
+
+On the backend it is necessary to run an update-database after modifiying the connection string on the appSettings.
+
+Web.Host should be selected as the starting project
+
+The login is User: admin  Pass: 123qwe
 
 # Introduction
 
-This is a template to create **ASP.NET Core MVC / Angular** based startup projects for [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). It has 2 different versions:
+This is program makes use of .Net Core 3 and Angular 11.
 
-1. [ASP.NET Core MVC & jQuery](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core) (server rendered multi-page application).
-2. [ASP.NET Core & Angular](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular) (single page application).
+It also uses PrimeNg on the backend to include some features on the front and the EF on the bckend.
+
+I made use  of Asp.Net Boilerplate to set the starting configurations of the system (login)
  
-User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminLTE).
- 
-# Download
+# Future implementation and what to do when no more rooms
 
-Create & download your project from https://aspnetboilerplate.com/Templates
 
-# Screenshots
 
-#### Sample Dashboard Page
-![](_screenshots/module-zero-core-template-ui-home.png)
-
-#### User Creation Modal
-![](_screenshots/module-zero-core-template-ui-user-create-modal.png)
-
-#### Login Page
-
-![](_screenshots/module-zero-core-template-ui-login.png)
-
-# Documentation
-
-* [ASP.NET Core MVC & jQuery version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core)
-* [ASP.NET Core & Angular  version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular)
-
-# License
-
-[MIT](LICENSE).
